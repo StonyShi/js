@@ -1,9 +1,10 @@
 /*!
  * Queen JS Library 0.0.1
  * Copyright(c) 2013-01-06 Stony
+ * https://github.com/StonyShi/js
  */
  (function(){
-   function _Q(){
+ 	function _Q(){
  		var args = arguments,
  			idSeed = 0,        
 			toString = Object.prototype.toString,        
@@ -194,7 +195,7 @@
 						this.el = DOC.createElement('div');
 						this.el.style.display = 'none';
 						this.el.className = 'tips_cls';
-						getBody().appendChild(this.el);
+						getBody.appendChild(this.el);
 					},
 					destroyTask : function(task){
 						clearTimeout(task);
@@ -249,12 +250,12 @@
 			HttpClient = function(){};
 			HttpClient.prototype = {
 				request: function(method, url, callback, postVars, async) {
-					Util.body.style.cursor = "wait";
+					getBody.style.cursor = "wait";
 				    var xhr = this.createXhrObject();
 				    if(typeof async == "undefined" || async == null) async = true;
 				    xhr.onreadystatechange = function() {
 				    	if(xhr.readyState !== 4) return;
-				    	if(xhr.readyState == 4)  Util.body.style.cursor = "default";
+				    	if(xhr.readyState == 4)  getBody.style.cursor = "default";
 				    	(xhr.status === 200) ?
 				    			callback.success(xhr.responseText, xhr.responseXML) : 
 				    			callback.failure(xhr.status);
